@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.dp.chanofresponsibility.CalculaDesconto;
-import br.com.dp.chanofresponsibility.ItensCompra;
+import br.com.dp.chanofresponsibility.Itenscompra.ItensCompra;
 import br.com.dp.strategy.Item;
 
 public class ChanOfResponsibilityTest {

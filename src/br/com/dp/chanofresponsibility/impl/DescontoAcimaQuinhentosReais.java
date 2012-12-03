@@ -1,7 +1,7 @@
 package br.com.dp.chanofresponsibility.impl;
 
 import br.com.dp.chanofresponsibility.Desconto;
-import br.com.dp.chanofresponsibility.ItensCompra;
+import br.com.dp.chanofresponsibility.Itenscompra.ItensCompra;
 import br.com.dp.strategy.Item;
 
 public class DescontoAcimaQuinhentosReais implements Desconto {

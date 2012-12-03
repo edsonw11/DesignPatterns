@@ -1,5 +1,6 @@
 package br.com.dp.chanofresponsibility;
 
+import br.com.dp.chanofresponsibility.Itenscompra.ItensCompra;
 import br.com.dp.strategy.Item;
 
 public class ChanOfResponsibility {

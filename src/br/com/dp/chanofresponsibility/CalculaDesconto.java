@@ -1,5 +1,6 @@
 package br.com.dp.chanofresponsibility;
 
+import br.com.dp.chanofresponsibility.Itenscompra.ItensCompra;
 import br.com.dp.chanofresponsibility.impl.DescontoAcimaCincoItens;
 import br.com.dp.chanofresponsibility.impl.DescontoAcimaQuinhentosReais;
 import br.com.dp.chanofresponsibility.impl.DescontoSemDesconto;

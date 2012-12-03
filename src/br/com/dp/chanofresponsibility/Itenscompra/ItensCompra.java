@@ -1,4 +1,4 @@
-package br.com.dp.chanofresponsibility;
+package br.com.dp.chanofresponsibility.Itenscompra;
 
 import java.util.ArrayList;
 import java.util.List;
