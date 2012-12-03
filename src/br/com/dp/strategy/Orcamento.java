@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Orcamento {
 
-	List<Item> listaItens;
+	private List<Item> listaItens;
+	private double valorOrcamento;
 
 	public Orcamento() {
 		super();
@@ -14,5 +15,17 @@ public class Orcamento {
 
 	public void adiciona(Item item) {
 		listaItens.add(item);
+	}
+
+	public double getValorOrcamento() {
+		valorOrcamento = 0;
+		if (listaItens.size() > 0) {
+			for (Item item : listaItens) {
+				valorOrcamento += item.getValor();
+			}
+			return valorOrcamento;
+		} else {
+			return 0;
+		}
 	}
 }

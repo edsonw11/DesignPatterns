@@ -1,5 +1,7 @@
 package br.com.dp.strategy;
 
+import br.com.dp.strategy.impl.ICMS;
+
 /**
  * Quando utilizamos uma hierarquia, como fizemos com a interface Imposto e as
  * implementações ICMS e ISS, e recebemos o tipo mais genérico como parâmetro,
@@ -15,17 +17,15 @@ public class DPStrategy {
 
 	public static void main(String[] args) {
 		System.out.println("Design Patterns para bons programadores - Strategy");
+		Item item = new Item("Geladeira", 1600);
+
+		Orcamento orcamento = new Orcamento();
+		orcamento.adiciona(item);
+		Imposto ICMS = new ICMS();
+
 		CalculoImposto calculoImposto = new CalculoImposto();
-		new Imposto() {
-			
-			@Override
-			public double execute(Orcamento orcamento) {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-		};
-		
-//		calculoImposto.execute(imposto, orcamento)
+		System.out.println(calculoImposto.execute(ICMS, orcamento));
+
 	}
 
 }
