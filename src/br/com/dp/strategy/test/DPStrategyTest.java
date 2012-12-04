@@ -10,6 +10,7 @@ import br.com.dp.strategy.Imposto;
 import br.com.dp.strategy.Item;
 import br.com.dp.strategy.Orcamento;
 import br.com.dp.strategy.impl.ICMS;
+import br.com.dp.strategy.impl.ICPP;
 import br.com.dp.strategy.impl.ISSS;
 
 public class DPStrategyTest {
@@ -19,9 +20,12 @@ public class DPStrategyTest {
 	private Imposto iCMS;
 	private Item fogao;
 	private ISSS iSSS;
+	private ICPP iCPP;
+	private CalculoImposto calculoImposto;
 
 	@Before
 	public void init() {
+		calculoImposto = new CalculoImposto();
 		geladeira = new Item("Geladeira", 500);
 		fogao = new Item("Fogao", 500);
 		orcamento = new Orcamento();
@@ -29,14 +33,25 @@ public class DPStrategyTest {
 		orcamento.adiciona(fogao);
 		iCMS = new ICMS();
 		iSSS = new ISSS();
+		iCPP = new ICPP();
 
 	}
 
 	@Test
-	public void calculaImposto() {
-		CalculoImposto calculoImposto = new CalculoImposto();
-		assertEquals(100, calculoImposto.execute(iCMS, orcamento),1l);
-		assertEquals(70, calculoImposto.execute(iSSS, orcamento),1l);
+	public void calculaImpostoICMS() {
+		assertEquals(100, calculoImposto.execute(iCMS, orcamento), 1l);
+
+	}
+
+	@Test
+	public void calculaImpostoISSS() {
+		assertEquals(70, calculoImposto.execute(iSSS, orcamento), 1l);
+
+	}
+
+	@Test
+	public void calculaImpostoICPP() {
+		assertEquals(50, calculoImposto.execute(iCPP, orcamento), 1l);
 
 	}
 
