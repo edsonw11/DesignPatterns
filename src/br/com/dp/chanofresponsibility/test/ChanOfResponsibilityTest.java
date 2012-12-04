@@ -15,6 +15,27 @@ public class ChanOfResponsibilityTest {
 	public void inti() {
 
 	}
+	@Test
+	public void doCalculaDescontoAcimaDeCincoItens() {
+		Item celular = new Item("Celular", 10);
+		Item caneta = new Item("Caneta", 10);
+		Item caderno = new Item("Caderno", 10);
+		Item lapis = new Item("Lapis", 10);
+		Item borracha = new Item("Borracha", 10);
+		Item fone = new Item("Fone", 100);
+		
+		ItensCompra itensCompra = new ItensCompra();
+		itensCompra.adiciona(celular);
+		itensCompra.adiciona(caneta);
+		itensCompra.adiciona(caderno);
+		itensCompra.adiciona(lapis);
+		itensCompra.adiciona(borracha);
+		itensCompra.adiciona(fone);
+		
+		CalculaDesconto calculaDesconto = new CalculaDesconto();
+		assertEquals(6.0, calculaDesconto.execute(itensCompra));
+		
+	}
 
 	@Test
 	public void doCalculaDescontoAcimaQuinhentosRais() {
@@ -37,27 +58,6 @@ public class ChanOfResponsibilityTest {
 
 	}
 
-	@Test
-	public void doCalculaDescontoAcimaDeCincoItens() {
-		Item celular = new Item("Celular", 10);
-		Item caneta = new Item("Caneta", 10);
-		Item caderno = new Item("Caderno", 10);
-		Item lapis = new Item("Lapis", 10);
-		Item borracha = new Item("Borracha", 10);
-		Item fone = new Item("Fone", 100);
-
-		ItensCompra itensCompra = new ItensCompra();
-		itensCompra.adiciona(celular);
-		itensCompra.adiciona(caneta);
-		itensCompra.adiciona(caderno);
-		itensCompra.adiciona(lapis);
-		itensCompra.adiciona(borracha);
-		itensCompra.adiciona(fone);
-
-		CalculaDesconto calculaDesconto = new CalculaDesconto();
-		assertEquals(6.0, calculaDesconto.execute(itensCompra));
-
-	}
 
 	@Test
 	public void doCalculaDescontoSemDesconto() {
