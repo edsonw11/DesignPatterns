@@ -1,8 +1,8 @@
 package br.com.dp.chanofresponsibility.impl;
 
 import br.com.dp.chanofresponsibility.Desconto;
-import br.com.dp.chanofresponsibility.Itenscompra.ItensCompra;
 import br.com.dp.strategy.Item;
+import br.com.dp.strategy.Orcamento;
 
 public class DescontoAcimaQuinhentosReais implements Desconto {
 
@@ -10,14 +10,14 @@ public class DescontoAcimaQuinhentosReais implements Desconto {
 	private double valorCompra;
 
 	@Override
-	public double execute(ItensCompra itensCompra) {
-		for (Item item : itensCompra.getLista()) {
+	public double execute(Orcamento orcamento) {
+		for (Item item : orcamento.getListaItens()) {
 			valorCompra += item.getValor();
 		}
 		if (valorCompra > 500) {
 			return valorCompra;
 		} else {
-			return proximoDesconto.execute(itensCompra);
+			return proximoDesconto.execute(orcamento);
 		}
 	}
 

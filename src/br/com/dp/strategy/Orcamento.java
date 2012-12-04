@@ -28,4 +28,9 @@ public class Orcamento {
 			return 0;
 		}
 	}
+
+	public List<Item> getListaItens() {
+		return listaItens;
+	}
+
 }

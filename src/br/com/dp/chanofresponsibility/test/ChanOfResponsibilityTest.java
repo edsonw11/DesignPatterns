@@ -6,8 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.dp.chanofresponsibility.CalculaDesconto;
-import br.com.dp.chanofresponsibility.Itenscompra.ItensCompra;
 import br.com.dp.strategy.Item;
+import br.com.dp.strategy.Orcamento;
 
 public class ChanOfResponsibilityTest {
 
@@ -24,16 +24,16 @@ public class ChanOfResponsibilityTest {
 		Item borracha = new Item("Borracha", 10);
 		Item fone = new Item("Fone", 100);
 		
-		ItensCompra itensCompra = new ItensCompra();
-		itensCompra.adiciona(celular);
-		itensCompra.adiciona(caneta);
-		itensCompra.adiciona(caderno);
-		itensCompra.adiciona(lapis);
-		itensCompra.adiciona(borracha);
-		itensCompra.adiciona(fone);
+		Orcamento orcamento = new Orcamento();
+		orcamento.adiciona(celular);
+		orcamento.adiciona(caneta);
+		orcamento.adiciona(caderno);
+		orcamento.adiciona(lapis);
+		orcamento.adiciona(borracha);
+		orcamento.adiciona(fone);
 		
 		CalculaDesconto calculaDesconto = new CalculaDesconto();
-		assertEquals(6.0, calculaDesconto.execute(itensCompra));
+		assertEquals(6.0, calculaDesconto.execute(orcamento));
 		
 	}
 
@@ -46,15 +46,15 @@ public class ChanOfResponsibilityTest {
 		Item borracha = new Item("Borracha", 100);
 		Item fone = new Item("Fone", 100);
 
-		ItensCompra itensCompra = new ItensCompra();
-		itensCompra.adiciona(celular);
-		itensCompra.adiciona(caneta);
-		itensCompra.adiciona(caderno);
-		itensCompra.adiciona(lapis);
-		itensCompra.adiciona(borracha);
-		itensCompra.adiciona(fone);
+		Orcamento orcamento = new Orcamento();
+		orcamento.adiciona(celular);
+		orcamento.adiciona(caneta);
+		orcamento.adiciona(caderno);
+		orcamento.adiciona(lapis);
+		orcamento.adiciona(borracha);
+		orcamento.adiciona(fone);
 		CalculaDesconto calculaDesconto = new CalculaDesconto();
-		assertEquals(600.00, calculaDesconto.execute(itensCompra));
+		assertEquals(600.00, calculaDesconto.execute(orcamento));
 
 	}
 
@@ -67,15 +67,15 @@ public class ChanOfResponsibilityTest {
 		Item lapis = new Item("Lapis", 10);
 		Item borracha = new Item("Borracha", 10);
 
-		ItensCompra itensCompra = new ItensCompra();
-		itensCompra.adiciona(celular);
-		itensCompra.adiciona(caneta);
-		itensCompra.adiciona(caderno);
-		itensCompra.adiciona(lapis);
-		itensCompra.adiciona(borracha);
+		Orcamento orcamento = new Orcamento();
+		orcamento.adiciona(celular);
+		orcamento.adiciona(caneta);
+		orcamento.adiciona(caderno);
+		orcamento.adiciona(lapis);
+		orcamento.adiciona(borracha);
 
 		CalculaDesconto calculaDesconto = new CalculaDesconto();
-		assertEquals(0.0, calculaDesconto.execute(itensCompra));
+		assertEquals(0.0, calculaDesconto.execute(orcamento));
 
 	}
 

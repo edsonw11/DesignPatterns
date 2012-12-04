@@ -1,10 +1,10 @@
 package br.com.dp.chanofresponsibility;
 
-import br.com.dp.chanofresponsibility.Itenscompra.ItensCompra;
+import br.com.dp.strategy.Orcamento;
 
 public interface Desconto {
 
-	double execute(ItensCompra itensCompra);
+	double execute(Orcamento orcamento);
 
 	void setProximoDesconto(Desconto desconto);
 }

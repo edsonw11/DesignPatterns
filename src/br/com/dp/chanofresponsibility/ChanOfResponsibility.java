@@ -1,7 +1,7 @@
 package br.com.dp.chanofresponsibility;
 
-import br.com.dp.chanofresponsibility.Itenscompra.ItensCompra;
 import br.com.dp.strategy.Item;
+import br.com.dp.strategy.Orcamento;
 
 public class ChanOfResponsibility {
 
@@ -17,15 +17,15 @@ public class ChanOfResponsibility {
 		Item borracha = new Item("Borracha", 100);
 		Item fone = new Item("Fone", 100);
 
-		ItensCompra itensCompra = new ItensCompra();
-		itensCompra.adiciona(celular);
-		itensCompra.adiciona(caneta);
-		itensCompra.adiciona(caderno);
-		itensCompra.adiciona(lapis);
-		itensCompra.adiciona(borracha);
-		itensCompra.adiciona(fone);
+		Orcamento orcamento = new Orcamento();
+		orcamento.adiciona(celular);
+		orcamento.adiciona(caneta);
+		orcamento.adiciona(caderno);
+		orcamento.adiciona(lapis);
+		orcamento.adiciona(borracha);
+		orcamento.adiciona(fone);
 		CalculaDesconto calculaDesconto = new CalculaDesconto();
-		System.out.println(calculaDesconto.execute(itensCompra));
+		System.out.println(calculaDesconto.execute(orcamento));
 
 	}
 
