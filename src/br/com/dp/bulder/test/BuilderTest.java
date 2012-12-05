@@ -1,4 +1,4 @@
-package br.com.dp.bulder;
+package br.com.dp.bulder.test;
 
 import java.util.Calendar;
 
@@ -7,6 +7,8 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.dp.bulder.NotaFiscal;
+import br.com.dp.bulder.NotaFiscalBuilder;
 import br.com.dp.strategy.Item;
 
 public class BuilderTest {
