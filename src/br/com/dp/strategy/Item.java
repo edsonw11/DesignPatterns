@@ -26,4 +26,9 @@ public class Item {
 		this.valor = valor;
 	}
 
+	@Override
+	public String toString() {
+		return "Item [descricao=" + descricao + ", valor=" + valor + "]";
+	}
+
 }
