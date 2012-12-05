@@ -4,43 +4,29 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import br.com.dp.observer.ActionsAfter;
+import br.com.dp.observer.impl.EnviadorEmail;
+import br.com.dp.observer.impl.EnviadorSMS;
 import br.com.dp.strategy.Item;
 
 public class NotaFiscalBuilder {
 
-	private String razaoSocial;
-	private String ie;
-	private String cnpj;
-	private String obs;
-	private Calendar dataCompra;
-	private Double valorDesconto;
-	private Double valorImposto;
-	private String obs2;
 	private Integer numeroNota;
+	private Item item;
+	private Calendar dataCompra;
+	private double valorDesconto;
+	private double valorImposto;
+	private String obs;
 	private List<Item> lista;
+	private List<ActionsAfter> listAcoes;
 
 	public NotaFiscalBuilder() {
 		super();
-
+		listAcoes = new ArrayList<ActionsAfter>();
 	}
 
-	public NotaFiscalBuilder paraNomeEmpresa(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
-		return this;
-	}
-
-	public NotaFiscalBuilder paraCnpjEmpresa(String cnpj) {
-		this.cnpj = cnpj;
-		return this;
-	}
-
-	public NotaFiscalBuilder paraIEEmpresa(String ie) {
-		this.ie = ie;
-		return this;
-	}
-
-	public NotaFiscalBuilder paraOBsEmpresa(String obs) {
-		this.obs = obs;
+	public NotaFiscalBuilder adiciaActionAfter(ActionsAfter actionAfter) {
+		listAcoes.add(actionAfter);
 		return this;
 	}
 
@@ -54,18 +40,8 @@ public class NotaFiscalBuilder {
 		return this;
 	}
 
-	public NotaFiscalBuilder paraValorDesconto(Double valorDesconto) {
-		this.valorDesconto = valorDesconto;
-		return this;
-	}
-
-	public NotaFiscalBuilder paraValorImposto(Double valorImposto) {
-		this.valorImposto = valorImposto;
-		return this;
-	}
-
 	public NotaFiscalBuilder paraObs(String obs) {
-		obs2 = obs;
+		this.obs = obs;
 		return this;
 	}
 
@@ -73,12 +49,22 @@ public class NotaFiscalBuilder {
 		if (lista == null) {
 			lista = new ArrayList<Item>();
 		}
+		valorDesconto += item.getValor() * 0.1;
+		valorImposto += item.getValor() * 0.05;
 		lista.add(item);
 		return this;
 	}
 
 	public NotaFiscal constroiNotaFiscal() {
-		return new NotaFiscal(new Empresa(razaoSocial, cnpj, ie, obs), numeroNota, lista, dataCompra, valorImposto, valorDesconto, obs2);
+		NotaFiscal nf = new NotaFiscal(numeroNota, lista, dataCompra, valorImposto, valorDesconto, obs);
+
+		EnviadorEmail email = new EnviadorEmail();
+		EnviadorSMS sms = new EnviadorSMS();
+
+		for (ActionsAfter acoes : listAcoes) {
+			acoes.envia();
+		}
+		return nf;
 
 	}
 }
